@@ -1,9 +1,16 @@
+import Navbar from "./components/Navbar/Navbar.jsx"
+import Footer from "./components/Footer/Footer.jsx"
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer.jsx"
 
-function App(){
+function App (){
 
   return(
-    <div>TCG Store</div>
-  )
+  <div>
+    <Navbar/>
+    <ItemListContainer greeting= "¡Bienvenidos a TCG Store!"/>
+    <Footer/>
+  </div>
+)
 }
 
 export default App
