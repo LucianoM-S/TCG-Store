@@ -1,16 +1,22 @@
 import Navbar from "./components/Navbar/Navbar.jsx"
 import Footer from "./components/Footer/Footer.jsx"
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer.jsx"
+import { useState } from "react"
 
-function App (){
-
-  return(
-  <div>
-    <Navbar/>
-    <ItemListContainer greeting= "¡Bienvenidos a TCG Store!"/>
-    <Footer/>
-  </div>
-)
+function App() {
+    const [cart, setCart] = useState([])
+    const [cartProductsCounter, setCartProductsCounter] = useState(0)
+    const addProductCart = (id, quantity) => {
+        setCart([...cart, { id, quantity }])
+        setCartProductsCounter(cartProductsCounter + quantity)
+    }
+    return (
+        <>
+            <Navbar cartProductsCounter={cartProductsCounter} />
+            <ItemListContainer greeting="¡Bienvenidos a TCG Store!" addProductCart={addProductCart}/>
+            <Footer />
+        </>
+    )
 }
 
 export default App
