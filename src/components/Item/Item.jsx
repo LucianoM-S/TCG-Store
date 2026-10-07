@@ -1,7 +1,7 @@
 import styles from "./index.module.css"
 import { FaCartShopping } from "react-icons/fa6"
 
-function Item({ product, addProductCart }) {
+function Item({ product, addProductCart, onSelectProduct }) {
 
     return (
         <div className={styles.card}>
@@ -16,17 +16,17 @@ function Item({ product, addProductCart }) {
             <h3 className={styles.title}>
                 {product.title}
             </h3>
-            <p className={styles.description}>
-                {product.description}
-            </p>
             <div className={styles.footer}>
                 <span className={styles.price}>
                     ${product.price}
                 </span>
-                <span className={styles.stock}>
-                    Stock: {product.stock}
-                </span>
             </div>
+            <button
+                className={styles.detailButton}
+                onClick={() => onSelectProduct(product.id)}
+            >
+                Ver detalle
+            </button>
             <button
                 className={styles.addButton}
                 onClick={() => addProductCart(product.id, 1)}

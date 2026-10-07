@@ -3,7 +3,7 @@ import styles from "./index.module.css"
 import ItemList from "../ItemList/ItemList.jsx"
 import { getProducts } from "../../mock/asyncMock.js"
 
-function ItemListContainer({ greeting, addProductCart }) {
+function ItemListContainer({ greeting, addProductCart, onSelectProduct  }) {
     const [items, setItems] = useState([])
     useEffect(() => {
         const fetchProducts = async () => {
@@ -22,6 +22,7 @@ function ItemListContainer({ greeting, addProductCart }) {
             <ItemList
                 products={items}
                 addProductCart={addProductCart}
+                onSelectProduct={onSelectProduct}
             />
         </div>
     )

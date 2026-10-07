@@ -43,14 +43,6 @@
     font-size: 1.2rem;
 }
 
-.description {
-    flex-grow: 1;
-    margin: 0 0 1rem;
-    color: #666;
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
 .footer {
     display: flex;
     align-items: center;
@@ -66,10 +58,6 @@
     font-weight: bold;
 }
 
-.stock {
-    color: #888;
-    font-size: 0.8rem;
-}
 
 .addButton { 
 	display: flex; 
@@ -98,4 +86,20 @@
 
 .addButton:active { 
 	transform: translateY(0); 
+}
+.detailButton {
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 0.5rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #e0e0e0;
+    color: #222;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.detailButton:hover {
+    background-color: #d0d0d0;
 }

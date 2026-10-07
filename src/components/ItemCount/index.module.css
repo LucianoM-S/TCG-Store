@@ -1,0 +1,67 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.counter button {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 6px;
+    background-color: #db35fc;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.counter button:hover:not(:disabled) {
+    background-color: #db35fc;
+}
+
+.counter button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.counter span {
+    min-width: 30px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.container p {
+    color: #666;
+    font-size: 0.9rem;
+}
+.confirmButton {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #db35fc;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.confirmButton:hover:not(:disabled) {
+    background-color: #db35fc;
+}
+
+.confirmButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
