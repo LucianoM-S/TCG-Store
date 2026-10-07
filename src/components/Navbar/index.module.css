@@ -32,6 +32,10 @@
 .link a:hover {
     color: #ff3eef;
 }
+.link a.active {
+    color: #ff3eef;
+    font-weight: bold;
+}
 
 @media (max-width: 700px) {
     .navbar {

@@ -2,27 +2,20 @@ TCG Store
 
 Descripción 
 TCG Store es un e-commerce desarrollado para la comercialización de Trading Card Game.
-En esta etapa se implementó la vista de detalle de producto mediante una promesa dinámica, aplicando separación de responsabilidades entre los componentes encargados de obtener, administrar y mostrar la información.
+Permite visualizar el catálogo, filtrar productos por categoría, acceder al detalle de cada producto y navegar entre las diferentes secciones mediante rutas dinámicas.
 
 Funcionalidades
-Visualización de un catálogo de productos.
-Productos organizados por categorías:
-Singles
-Sellados
-Accesorios
-Visualización de imagen, nombre, categoría, precio y descripción.
-Vista de detalle individual de un producto.
-Búsqueda dinámica de productos mediante su id.
-Simulación de una petición asincrónica mediante Promise y setTimeout.
-Estado de carga mientras se obtiene el producto.
-Manejo de errores cuando el producto no existe.
-Selector de cantidad mediante ItemCount.
-Control del stock disponible.
-Prevención de cantidades superiores al stock.
-Prevención de cantidades inferiores a cero.
-Agregado de productos al carrito.
-Contador de productos en el carrito.
-Diseño responsive para diferentes tamaños de pantalla.
+Visualización del catálogo de productos.
+Navegación entre páginas mediante React Router.
+Filtrado de productos por categoría.
+Rutas dinámicas para categorías y productos.
+Vista de detalle de cada producto.
+Manejo de estados de carga y errores.
+Navegación interna mediante Link y NavLink.
+Navbar y Footer compartidos entre las diferentes rutas.
+CartWidget visible en todas las páginas.
+Página 404 para rutas inexistentes.
+Carga simulada de productos mediante una función asíncrona.
 
 Tecnologías utilizadas
 React
@@ -34,16 +27,14 @@ React Icons
 Git
 GitHub
 
-Separación de responsabilidades
-El proyecto utiliza componentes con responsabilidades específicas:
-getProductById
-Se encarga de buscar un producto mediante su identificador y retornar una promesa.
-ItemDetailContainer
-Se encarga de ejecutar la búsqueda del producto, administrar el estado y controlar los estados de carga y error.
-ItemDetail
-Se encarga exclusivamente de mostrar la información completa del producto.
-ItemCount
-Se encarga de controlar la cantidad seleccionada respetando el stock disponible.
+Rutas principales
+Ruta	Descripción
+/	-		Página principal con todos los productos
+/category/singles -	Productos de la categoría Singles
+/category/sellados -	Productos de la categoría Sellados
+/category/accesorios -	Productos de la categoría Accesorios
+/item/:id -		Detalle de un producto específico
+*	-		Página 404 para rutas inexistentes
 
 Instalación y ejecución
 Clonar el repositorio: git clone https://github.com/LucianoM-S/TCG-Store

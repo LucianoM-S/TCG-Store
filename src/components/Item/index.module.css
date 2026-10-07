@@ -87,19 +87,11 @@
 .addButton:active { 
 	transform: translateY(0); 
 }
-.detailButton {
-    width: 100%;
-    padding: 0.7rem;
-    margin-bottom: 0.5rem;
-    border: none;
-    border-radius: 6px;
-    background-color: #e0e0e0;
-    color: #222;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: 0.2s;
-}
 
-.detailButton:hover {
-    background-color: #d0d0d0;
+.detailLink {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    color: inherit;
+    text-decoration: none;
 }

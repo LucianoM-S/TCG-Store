@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+
 import styles from "./index.module.css"
 import { getProductById } from "../../services/getProductById.js"
 import ItemDetail from "../ItemDetail/ItemDetail.jsx"
 
-function ItemDetailContainer({ productId, addProductCart }) {
+function ItemDetailContainer({ addProductCart }) {
+
+    const { id } = useParams()
 
     const [product, setProduct] = useState(null)
     const [error, setError] = useState(null)
 
     useEffect(() => {
 
-        getProductById(productId)
+        setProduct(null)
+        setError(null)
+
+        getProductById(Number(id))
             .then((product) => {
                 setProduct(product)
             })
@@ -19,7 +26,7 @@ function ItemDetailContainer({ productId, addProductCart }) {
                 setError(error.message)
             })
 
-    }, [productId])
+    }, [id])
 
     if (error) {
         return (
@@ -39,10 +46,12 @@ function ItemDetailContainer({ productId, addProductCart }) {
 
     return (
         <div className={styles.container}>
+
             <ItemDetail
                 product={product}
                 addProductCart={addProductCart}
             />
+
         </div>
     )
 }

@@ -1,7 +1,8 @@
 import styles from "./index.module.css"
 import Item from "../Item/Item.jsx"
 
-function ItemList({ products, addProductCart, onSelectProduct }) {
+function ItemList({ products, addProductCart }) {
+
     return (
         <div className={styles.products}>
             {products.map((product) => (
@@ -9,7 +10,6 @@ function ItemList({ products, addProductCart, onSelectProduct }) {
                     key={product.id}
                     product={product}
                     addProductCart={addProductCart}
-                    onSelectProduct={onSelectProduct}
                 />
             ))}
         </div>
