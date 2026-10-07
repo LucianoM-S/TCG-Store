@@ -5,7 +5,7 @@ import styles from "./index.module.css"
 import { getProductById } from "../../services/getProductById.js"
 import ItemDetail from "../ItemDetail/ItemDetail.jsx"
 
-function ItemDetailContainer({ addProductCart }) {
+function ItemDetailContainer() {
 
     const { id } = useParams()
 
@@ -47,10 +47,7 @@ function ItemDetailContainer({ addProductCart }) {
     return (
         <div className={styles.container}>
 
-            <ItemDetail
-                product={product}
-                addProductCart={addProductCart}
-            />
+            <ItemDetail product={product}/>
 
         </div>
     )

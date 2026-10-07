@@ -2,11 +2,11 @@ import { Outlet } from "react-router-dom"
 import Navbar from "../Navbar/Navbar.jsx"
 import Footer from "../Footer/Footer.jsx"
 
-function Layout({ cartProductsCounter }) {
+function Layout() {
 
     return (
         <>
-            <Navbar cartProductsCounter={cartProductsCounter} />
+            <Navbar/>
 
             <main>
                 <Outlet />

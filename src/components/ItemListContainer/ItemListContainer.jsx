@@ -5,7 +5,7 @@ import styles from "./index.module.css"
 import ItemList from "../ItemList/ItemList.jsx"
 import { getProducts } from "../../mock/asyncMock.js"
 
-function ItemListContainer({ greeting, addProductCart }) {
+function ItemListContainer({ greeting }) {
 
     const { id } = useParams()
 
@@ -90,10 +90,7 @@ function ItemListContainer({ greeting, addProductCart }) {
 
             {items.length > 0 ? (
 
-                <ItemList
-                    products={items}
-                    addProductCart={addProductCart}
-                />
+                <ItemList products={items}/>
 
             ) : (
 

@@ -2,20 +2,26 @@ TCG Store
 
 Descripción 
 TCG Store es un e-commerce desarrollado para la comercialización de Trading Card Game.
-Permite visualizar el catálogo, filtrar productos por categoría, acceder al detalle de cada producto y navegar entre las diferentes secciones mediante rutas dinámicas.
+Permite visualizar el catálogo, filtrar productos por categoría, acceder al detalle de cada producto y navegar entre las diferentes secciones mediante rutas dinámicas y administrar un carrito de compras.
 
 Funcionalidades
 Visualización del catálogo de productos.
+Filtrado de productos por categoría:
+Singles
+Sellados
+Accesorios
+Vista detallada de cada producto.
+Selector de cantidad mediante ItemCount.
+Agregado de productos al carrito.
+Carrito global mediante Context API.
+Contador de productos en el CartWidget.
+Visualización de subtotal y total del carrito.
+Eliminación individual de productos.
+Vaciar el carrito.
 Navegación entre páginas mediante React Router.
-Filtrado de productos por categoría.
-Rutas dinámicas para categorías y productos.
-Vista de detalle de cada producto.
-Manejo de estados de carga y errores.
-Navegación interna mediante Link y NavLink.
-Navbar y Footer compartidos entre las diferentes rutas.
-CartWidget visible en todas las páginas.
 Página 404 para rutas inexistentes.
-Carga simulada de productos mediante una función asíncrona.
+Manejo de estados de carga y error durante la obtención de productos.
+Simulación de peticiones asíncronas mediante Promises.
 
 Tecnologías utilizadas
 React
@@ -34,7 +40,8 @@ Ruta	Descripción
 /category/sellados -	Productos de la categoría Sellados
 /category/accesorios -	Productos de la categoría Accesorios
 /item/:id -		Detalle de un producto específico
-*	-		Página 404 para rutas inexistentes
+/cart		-	Carrito de compras
+/*	-		Página 404 para rutas inexistentes
 
 Instalación y ejecución
 Clonar el repositorio: git clone https://github.com/LucianoM-S/TCG-Store

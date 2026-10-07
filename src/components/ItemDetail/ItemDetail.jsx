@@ -1,8 +1,13 @@
 import styles from "./index.module.css"
 import ItemCount from "../ItemCount/ItemCount.jsx"
+import { useCart } from "../../context/CartContext.jsx"
 
-function ItemDetail({ product, addProductCart }) {
+function ItemDetail({ product }) {
+    
+    const { addItem } = useCart()
 
+    const handleAdd = (quantity) => { addItem(product, quantity) }
+    
     return (
         <div className={styles.detail}>
 
@@ -40,7 +45,7 @@ function ItemDetail({ product, addProductCart }) {
 
                 <ItemCount
     			stock={product.stock}
-   			 onAdd={(quantity) => addProductCart(product.id, quantity)}
+   			onAdd={handleAdd}
 		/>
 
 

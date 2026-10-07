@@ -2,7 +2,7 @@ import styles from "./index.module.css"
 import CartWidget from "../CartWidget/CartWidget.jsx"
 import { NavLink } from "react-router-dom"
 
-function Navbar({ cartProductsCounter }) {
+function Navbar() {
 
     return (
         <nav className={styles.navbar}>
@@ -31,7 +31,7 @@ function Navbar({ cartProductsCounter }) {
                     </NavLink>
                 </li>
             </ul>
-            <CartWidget cartProductsCounter={cartProductsCounter}/>
+            <CartWidget/>
         </nav>
     )
 }

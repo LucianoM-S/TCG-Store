@@ -1,8 +1,12 @@
 import styles from "./index.module.css"
 import { FaCartShopping } from "react-icons/fa6"
 import { Link } from "react-router-dom"
+import { useCart } from "../../context/CartContext.jsx"
 
-function Item({ product, addProductCart }) {
+function Item({ product }) {
+
+    const { addItem } = useCart()
+    const handleAdd = () => { addItem(product, 1) }
 
     return (
         <div className={styles.card}>
@@ -36,7 +40,7 @@ function Item({ product, addProductCart }) {
 
             <button
                 className={styles.addButton}
-                onClick={() => addProductCart(product.id, 1)}
+                onClick={handleAdd}
             >
                 <FaCartShopping />
                 Agregar al carrito

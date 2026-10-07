@@ -1,16 +1,22 @@
 import styles from "./index.module.css"
 import { FaCartShopping } from "react-icons/fa6"
+import { Link } from "react-router-dom" 
+import { useCart } from "../../context/CartContext.jsx"
 
-function CartWidget({ cartProductsCounter }) {
+function CartWidget() {
+
+    const { totalItems } = useCart()
+
     return (
-        <div className={styles.widget}>
+        <Link to="/cart" className={styles.widget}>
             <FaCartShopping />
-            {cartProductsCounter > 0 && (
+
+            {totalItems > 0 && (
                 <span className={styles.cartBadge}>
-                    {cartProductsCounter}
+                    {totalItems}
                 </span>
             )}
-        </div>
+        </Link>
     )
 }
 
