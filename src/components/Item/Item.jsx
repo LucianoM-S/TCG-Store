@@ -41,9 +41,10 @@ function Item({ product }) {
             <button
                 className={styles.addButton}
                 onClick={handleAdd}
+                disabled={product.stock <= 0}
             >
                 <FaCartShopping />
-                Agregar al carrito
+                {product.stock <= 0 ? "Sin stock" : "Agregar al carrito"}
             </button>
 
         </div>

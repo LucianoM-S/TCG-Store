@@ -1,72 +1,56 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-import styles from "./index.module.css"
-import ItemList from "../ItemList/ItemList.jsx"
-import { getProducts } from "../../mock/asyncMock.js"
+import styles from "./index.module.css";
+import ItemList from "../ItemList/ItemList.jsx";
+import { getProducts } from "../../services/products.js";
 
 function ItemListContainer({ greeting }) {
+    const { id } = useParams();
 
-    const { id } = useParams()
-
-    const [items, setItems] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
+    const [items, setItems] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
+        let active = true;
 
-        const fetchProducts = async () => {
-
+        async function fetchProducts() {
             try {
+                setLoading(true);
+                setError(null);
 
-                setLoading(true)
-                setError(null)
+                const products = await getProducts(id);
 
-                const products = await getProducts()
-
-                if (id) {
-
-                    const filteredProducts = products.filter(
-                        (product) =>
-                            product.category.toLowerCase() === id.toLowerCase()
-                    )
-
-                    setItems(filteredProducts)
-
-                } else {
-
-                    setItems(products)
-
+                if (active) {
+                    setItems(products);
                 }
+            } catch (err) {
+                console.error("Error al cargar productos:", err);
 
-            } catch (error) {
-
-                console.error(
-                    "Error al cargar los productos:",
-                    error
-                )
-
-                setError(
-                    "No se pudieron cargar los productos."
-                )
-
+                if (active) {
+                    setError("No se pudieron cargar los productos. Intentá nuevamente.");
+                }
             } finally {
-
-                setLoading(false)
-
+                if (active) {
+                    setLoading(false);
+                }
             }
         }
 
-        fetchProducts()
+        fetchProducts();
 
-    }, [id])
+        return () => {
+            active = false;
+        };
+    }, [id]);
 
     if (loading) {
         return (
             <div className={styles.message}>
                 <p>Cargando productos...</p>
             </div>
-        )
+        );
     }
 
     if (error) {
@@ -74,12 +58,11 @@ function ItemListContainer({ greeting }) {
             <div className={styles.message}>
                 <p>{error}</p>
             </div>
-        )
+        );
     }
 
     return (
         <div className={styles.container}>
-
             <h1>{greeting}</h1>
 
             {id && (
@@ -89,21 +72,14 @@ function ItemListContainer({ greeting }) {
             )}
 
             {items.length > 0 ? (
-
-                <ItemList products={items}/>
-
+                <ItemList products={items} />
             ) : (
-
                 <div className={styles.message}>
-                    <p>
-                        No hay productos disponibles en esta categoría.
-                    </p>
+                    <p>No hay productos disponibles en esta categoría.</p>
                 </div>
-
             )}
-
         </div>
-    )
+    );
 }
 
-export default ItemListContainer
+export default ItemListContainer;

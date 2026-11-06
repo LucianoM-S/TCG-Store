@@ -8,35 +8,54 @@ export function CartProvider({ children }) {
 
     const [cart, setCart] = useState([])
 
-    const addItem = (item, quantity) => {
-
+    const addItem = (item, quantity = 1) => {
         setCart((prev) => {
-
             const existingItem = prev.find(
                 (product) => product.id === item.id
-            )
+            );
+
+            const currentQuantity = existingItem
+                ? existingItem.quantity
+                : 0;
+
+            const stock = Number(item.stock);
+            const requestedQuantity = Number(quantity);
+
+            if (
+                !Number.isInteger(requestedQuantity) ||
+                requestedQuantity < 1 ||
+                !Number.isFinite(stock) ||
+                stock < 0
+            ) {
+                return prev;
+            }
+
+            // No permitir superar el stock disponible.
+            if (currentQuantity + requestedQuantity > stock) {
+                return prev;
+            }
 
             if (existingItem) {
-
                 return prev.map((product) =>
                     product.id === item.id
                         ? {
                             ...product,
-                            quantity: product.quantity + quantity
+                            quantity:
+                                product.quantity + requestedQuantity,
                         }
                         : product
-                )
+                );
             }
 
             return [
                 ...prev,
                 {
                     ...item,
-                    quantity
-                }
-            ]
-        })
-    }
+                    quantity: requestedQuantity,
+                },
+            ];
+        });
+    };
 
     const removeItem = (itemId) => {
 

@@ -91,7 +91,11 @@
 	background-color: #495057; 
 } 
 .checkoutButton { 
-	background-color: #db35fc; 
+	background-color: #db35fc;
+	display: inline-flex;
+    	align-items: center;
+    	justify-content: center;
+    	text-decoration: none;
 } 
 .checkoutButton:hover { 
 	background-color: #db35fc; 

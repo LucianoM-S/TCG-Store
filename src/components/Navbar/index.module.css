@@ -37,6 +37,55 @@
     font-weight: bold;
 }
 
+.brand {
+    color: #fff;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.userEmail {
+    color: #fff;
+    font-size: 0.85rem;
+    overflow-wrap: anywhere;
+}
+
+.authLink,
+.authButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid #db35fc;
+    border-radius: 7px;
+    color: #fff;
+    background: transparent;
+    font: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.authLink:hover,
+.authButton:hover {
+    background-color: #700080;
+}
+
+.logoutError {
+    padding: 0.75rem 1rem;
+    color: #b42318;
+    background: #fff0f0;
+    text-align: center;
+}
+
 @media (max-width: 700px) {
     .navbar {
         flex-direction: column;
@@ -49,4 +98,14 @@
         flex-wrap: wrap;
         justify-content: center;
     }
+    .account {
+        flex-wrap: wrap;
+    }
+
+    .userEmail {
+        max-width: 100%;
+        text-align: center;
+    }
+
 }
+

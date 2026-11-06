@@ -41,9 +41,9 @@ function Cart() {
 					<button className={styles.clearButton} onClick={clear} > 
 						Vaciar carrito 
 					</button> 
-					<button className={styles.checkoutButton} > 
-						Finalizar compra 
-					</button> 
+					<Link to="/checkout" className={styles.checkoutButton}>
+    						Finalizar compra
+					</Link>
 				</div> 
 			</div> 
 		</div> 
